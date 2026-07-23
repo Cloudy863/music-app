@@ -33,5 +33,16 @@ else:
     st.write("你現在充滿能量！需要節奏強烈、重低音滿滿的音樂來炸翻全場！")
     st.caption("💡 推薦歌單：Workout EDM / Hard Rock Essentials")
 
+import streamlit as st
+
+st.subheader("🎵 你的專屬音樂風格：Pop 流行樂")
+
+# 使用網路圖片 URL (例如 Spotify 的專輯封面連結)
+album_cover_url = "https://i.scdn.co/image/ab67616d0000b273e8b03176723040d7607a270a"
+
+st.image(album_cover_url, caption="推薦專輯：1989 (Taylor Version)", width=300)
+
+
+
 
 
