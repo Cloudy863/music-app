@@ -21,7 +21,7 @@ if st.button("✨ 產生我的音樂風格診斷"):
 
 if energy >= 7:
   style_title = "🔥 你的靈魂類型：高能搖滾 / 電子派對 Rock & EDM"
-  style_desc = "你現在充滿能量！需要節奏強烈、重低音滿滿的音樂來炸翻全場！"
+  style_desc = "你現在充滿能量！需要節奏強烈、重低音滿滿的音樂來炸翻全場,推薦你聽草東沒有派對的瓦合！"
   # 真正《草東沒有派對》專輯封面 (瓦合)
   album_cover = "https://share.google/6l8HQjxDO82ruXkkk"
   album_caption ="https://share.google/aimode/TxtfN17RNRAcGtCSO"
@@ -29,7 +29,7 @@ if energy >= 7:
 
 elif energy >= 4:
   style_title = "🎵 你的靈魂類型：Pop 流行樂 Pop Essentials"
-  style_desc = "你現在適合輕快流暢的旋律，來點流行金曲讓你心情保持愉悅！"
+  style_desc = "你現在適合輕快流暢的旋律，來點流行金曲讓你心情保持愉悅,推薦你聽告五人的帶你飛！"
   # 真正《告五人Accusefive》專輯封面 (帶你飛)
   album_cover = "https://share.google/dPIvZf56L98tWhJFs"
   album_caption ="https://share.google/aimode/t2CGIiKFXdvbA8Oyo"
