@@ -23,15 +23,15 @@ if st.button("✨ 產生我的音樂風格診斷"):
   st.divider()
   st.header("📊 診斷結果如下：")
 
-# 根據 energy 數值進行條件判斷
+  # 根據 energy 數值進行條件判斷
 if energy >= 7:
   style_title = "🔥 你的靈魂類型：高能搖滾 / 電子派對 Rock & EDM"
   style_desc = "你現在充滿能量！需要節奏強烈、重低音滿滿的音樂來炸翻全場！"
   album_cover = "https://picsum.photos/id/1025/300/300"
   album_caption = "推薦專輯：Linkin Park - Hybrid Theory"
   spotify_html = """
-<iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/6noUdB243Bqf3uL41R9p3p?utm_source=generator" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-"""
+  <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/6noUdB243Bqf3uL41R9p3p?utm_source=generator" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  """
 
 elif energy >= 4:
   style_title = "🎵 你的靈魂類型：Pop 流行樂 Pop Essentials"
@@ -39,8 +39,8 @@ elif energy >= 4:
   album_cover = "https://picsum.photos/id/1062/300/300"
   album_caption = "推薦專輯：Taylor Swift - 1989 (Taylor's Version)"
   spotify_html = """
-<iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/64LU4c133RrmTYL9C1283f?utm_source=generator" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-"""
+  <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/64LU4c133RrmTYL9C1283f?utm_source=generator" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  """
 
 else:
   style_title = "☕ 你的靈魂類型：深夜獨立 / Lofi 療癒系"
@@ -48,8 +48,8 @@ else:
   album_cover = "https://picsum.photos/id/1069/300/300"
   album_caption = "推薦專輯：Lofi Chill Beats"
   spotify_html = """
-<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DXdLENR312111?utm_source=generator" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-"""
+  <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DXdLENR312111?utm_source=generator" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  """
 
 # 顯示結果內容
 st.success(style_title)
