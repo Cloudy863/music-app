@@ -1,44 +1,72 @@
+
 import streamlit as st
+import streamlit.components.v1 as components
 
 # 頁面標題與簡介
-st.title("🎵 專屬音樂風格診斷室")
-st.write("回答以下簡單的問題，測出最適合你的音樂風格與推薦歌單！")
+st.title("🎵 音樂風格個性診斷 Quiz")
+st.write("回答以下問題，測出你今天的專屬音樂風格與推薦專輯！")
 
-st.divider() # 畫一條分隔線
+st.divider()
 
-# 題目一：單選題
+# --- 問題區 ---
+st.subheader("1. 你今天的心情或狀態比較接近？")
 q1 = st.radio(
-"1. 當你心情沉重、想放空時，你通常會選擇？",
-["獨自戴上耳機聽輕柔配樂", "播放輕快的流行歌轉移注意力", "聽重金屬/搖滾樂宣洩情緒"]
+"選擇一個最符合的選項：",
+["需要來點能量，重整旗鼓 ⚡", "想要放鬆心情，順其自然 ☕"],
+index=0
 )
 
-# 題目二：滑桿選擇
-energy = st.slider("2. 你現在希望音樂帶給你的能量感（1最低 ～ 10最高）：", 1, 10, 5)
+st.subheader("2. 你現在希望音樂引起你的能量感 (1最低 ~ 10最高)：")
+energy = st.slider("拉動滑塊選擇能量值：", min_value=1, max_value=10, value=5)
 
-# 測驗按鈕與結果判斷
+# --- 診斷按鈕 ---
 if st.button("✨ 產生我的音樂風格診斷"):
-    st.balloons() # 跑出氣球特效！
-    st.subheader("📊 診斷結果如下：")
+st.divider()
+st.header("📊 診斷結果如下：")
 
-if energy <= 4:
-    st.success("🍵 **你的靈魂類型：深夜獨立/Lofi 療癒系**")
-    st.write("你需要安靜且富有情感的旋律來平復心情，適合在讀書或睡前聆聽。")
-    st.caption("💡 推薦歌單：Lofi Girl Chill Beats / 獨立民謠系列")
-elif energy <= 7:
-    st.success("🎧 **你的靈魂類型：都會流行/節奏藍調 Pop & R&B**")
-    st.write("你喜歡有節奏感但又不至於太吵雜的音樂，能幫你保持好心情！")
-    st.caption("💡 推薦歌單：Chill Pop / R&B Grooves")
+# 根據 energy 數值與回答進行條件判斷
+if energy >= 7:
+# 高能量風格
+style_title = "🔥 你的靈魂類型：高能搖滾 / 電子派對 Rock & EDM"
+style_desc = "你現在充滿能量！需要節奏強烈、重低音滿滿的音樂來炸翻全場！"
+album_cover = "https://i.scdn.co/image/ab67616d0000b27334e34f64796061f71dfb375b"
+album_caption = "推薦專輯：Linkin Park - Hybrid Theory"
+# Spotify 嵌入碼 (iFrame)
+spotify_code = """
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX1Xim13T39y0?utm_source=generator" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+"""
+
+elif 4 <= energy < 7:
+# 中能量風格 (Pop 流行樂)
+style_title = "🎵 你的靈魂類型：Pop 流行樂 Pop Essentials"
+style_desc = "你現在適合輕快流暢的旋律，來點流行金曲讓你心情保持愉悅！"
+album_cover = "https://i.scdn.co/image/ab67616d0000b273e8b03176723040d7607a270a"
+album_caption = "推薦專輯：Taylor Swift - 1989 (Taylor's Version)"
+spotify_code = """
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX4dyzvA1I1W1?utm_source=generator" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+"""
+
 else:
-    st.success("🔥 **你的靈魂類型：高能搖滾/電子派對 Rock & EDM**")
-    st.write("你現在充滿能量！需要節奏強烈、重低音滿滿的音樂來炸翻全場！")
-    st.caption("💡 推薦歌單：Workout EDM / Hard Rock Essentials")
+# 低能量風格 (Lofi / 放鬆音樂)
+style_title = "☕ 你的靈魂類型：深夜獨立 / Lofi 療癒系"
+style_desc = "你現在需要平靜與放鬆，輕柔的背景音樂能陪你享受專屬的舒服時光。"
+album_cover = "https://i.scdn.co/image/ab67616d0000b2735d4ef6337a63756f50532454"
+album_caption = "推薦專輯：Lofi Chill Beats"
+spotify_code = """
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DXdLENR312111?utm_source=generator" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+"""
 
-import streamlit as st
+# --- 顯示結果內容 ---
+st.success(style_title)
+st.write(style_desc)
 
-st.subheader("🎵 你的專屬音樂風格：Pop 流行樂")
+# 顯示動態圖片 (根據上面設定的 album_cover 網址)
+st.image(album_cover, caption=album_caption, width=300)
 
-# 使用網路圖片 URL (例如 Spotify 的專輯封面連結)
-album_cover_url = "https://i.scdn.co/image/ab67616d0000b273e8b03176723040d7607a270a"
+# 顯示 Spotify 音樂播放器
+st.subheader("🎧 立即試聽：")
+components.html(spotify_code, height=160)
+
 
 
 
